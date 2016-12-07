@@ -1,0 +1,15 @@
+#version: '1'
+  minio:
+    image: minio/minio
+    command: server /export
+    container_name: mlaas-compose-minio
+    ports:
+    - "9000:9000"
+    volumes:
+    - ./mlaas-minio-export:/export
+    - ./mlaas-minio-config:/root/.minio
+  openzipkin:
+    container_name: mlaas-compose-openzipkin
+    image: openzipkin/zipkin
+    ports:
+    - "9411:9411"
