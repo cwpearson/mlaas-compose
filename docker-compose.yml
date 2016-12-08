@@ -1,5 +1,8 @@
 minio:
   image: minio/minio
+  environment:
+  - MINIO_ACCESS_KEY
+  - MINIO_SECRET_KEY
   command: server /export
   container_name: mlaas-compose-minio
   ports:
